@@ -37,6 +37,8 @@ spec:
                 value: "120"
             image: peacr${env_class}.azurecr.io/pe-actions-runner:main
             imagePullPolicy: Always
+        imagePullSecrets:
+          - name: docker-secret      
             name: runner
             volumeMounts:
               - mountPath: /home/runner/_work
