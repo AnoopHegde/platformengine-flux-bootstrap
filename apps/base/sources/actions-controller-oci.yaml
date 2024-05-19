@@ -4,5 +4,8 @@ metadata:
   name: arc
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 1m0s
+  provider: generic
+  timeout: 60s
+  type: oci  
   url: oci://ghcr.io/actions/actions-runner-controller-charts
