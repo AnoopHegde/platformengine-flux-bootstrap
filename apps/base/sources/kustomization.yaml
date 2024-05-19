@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - jetstack.yaml
-  - actions-controller-oci.yaml  
