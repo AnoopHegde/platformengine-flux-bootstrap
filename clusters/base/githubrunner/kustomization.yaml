@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: flux-system
+resources:
+  - source_ks.yaml
+  - certmanager_ks.yaml
+  - githubrunner_ks.yaml
+  - kubehunter_ks.yaml

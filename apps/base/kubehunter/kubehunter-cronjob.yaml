@@ -1,0 +1,24 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: kube-hunter
+  namespace: kube-hunter
+spec:
+  schedule: "0 1 * * *" # daily at 01:00
+  startingDeadlineSeconds: 3600
+  concurrencyPolicy: Replace
+  jobTemplate:
+    metadata:
+      labels:
+        app: kube-hunter
+    spec:
+      template:
+        spec:
+          containers:
+          - name: kube-hunter
+            image: aquasec/kube-hunter:0.6.8
+            command: ["kube-hunter"]
+            args: ["--pod"]
+          restartPolicy: OnFailure
+          automountServiceAccountToken: false

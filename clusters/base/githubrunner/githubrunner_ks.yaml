@@ -1,0 +1,44 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: githubrunner
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: sources
+  interval: 1m0s
+  path: ./apps/base/actions-runner-controller
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: client
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: shared-config
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: runner-set
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: sources
+    - name: githubrunner
+  interval: 1m0s
+  path: ./apps/base/actions-runners
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: client
+  postBuild:
+    substitute:
+      env_class: npd
+    substituteFrom:
+      - kind: ConfigMap
+        name: shared-config
