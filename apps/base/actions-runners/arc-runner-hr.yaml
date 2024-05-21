@@ -23,6 +23,8 @@ spec:
     runnerGroup: platformengine-runner-group
     template:
       spec:
+        imagePullSecrets:
+          - name: docker-secret
         containers:
           - command:
               - /home/runner/run.sh
