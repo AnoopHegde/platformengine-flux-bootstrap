@@ -47,10 +47,19 @@
 
   ```
      
+  ## Authenticating the runner
+
+  We are using GitHub App method for authenticating GitHub to Action Runner Controller.
+
+  1. As an owner of the Organizational Repository we will be having an access to create our own github apps. Get the credentials of a new GitHub App.
+  2. GitHub Apps can be installed in user,repository,organizational levels based on the end-user preferences.
+  3. Generate a Kubernetes secret "pe-github-secret" within the GHA runner cluster using the App_ID, App_Installation_ID, Private_key.
+   
+  Screenshots:
+
+  ![GHA Selfthosted runner status](docs/images/gha-selfhosted-runner-status.png "GHA Selfthosted runner status")
 
    
-
-  ## Authenticating the runner
 
   ## Setup the Fluxcd GitOps
 
