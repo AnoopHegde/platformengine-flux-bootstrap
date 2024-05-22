@@ -11,12 +11,14 @@
   - [Verify the Runner Installation](#verify-the-Runner-Installation)
   - [Reference Links](#reference-Links)
 
-
-
-
   <!-- TOC end -->
 
   ## Prerequisites
+  
+  1. Create a new free tier Organization and link that organization with trial Enterprise account.
+  2. Create a new repository for building and pushing custom actions-runner-image.
+  3. Create a new github apps under organizational level and install them to get the appID, appInstallationID, client_secret
+     private key.
 
   ## Create kind kubernetes cluster for GHA selfhosted runner
 
