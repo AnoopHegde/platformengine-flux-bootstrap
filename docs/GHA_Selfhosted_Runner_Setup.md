@@ -57,7 +57,7 @@
    
   Screenshots:
 
-  ![GHA Selfthosted runner status](/images/gha-selfhosted-runner-status.png "GHA Selfthosted runner status")
+  ![GHA Selfthosted runner status](./images/gha-selfhosted-runner-status.png "GHA Selfthosted runner status")
 
    
 
