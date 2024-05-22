@@ -22,6 +22,34 @@
 
   ## Create kind kubernetes cluster for GHA selfhosted runner
 
+  We need to setup two different kind kubernetes cluster ingress Nginx both for npd and prd environments.
+
+  Command to setup:
+
+  ```
+  kind create cluster --name gha-selfhosted-cluster --config=gha-selfhosted.yaml
+  kubectl cluster-info --context kind-gha-selfhosted-cluster
+
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+  kubectl get po  -A --context kind-gha-selfhosted-cluster
+  kubectl get svc -A --context kind-gha-selfhosted-cluster
+  kubectl get ing -A --context kind-gha-selfhosted-cluster
+
+  kind create cluster --name gha-selfhosted-cluster-prd --config=gha-selfhosted-prd.yaml
+  kubectl cluster-info --context kind-gha-selfhosted-cluster-prd
+
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+  kubectl get po  -A --context kind-gha-selfhosted-cluster-prd
+  kubectl get svc -A --context kind-gha-selfhosted-cluster-prd
+  kubectl get ing -A --context kind-gha-selfhosted-cluster-prd
+
+  ```
+     
+
+   
+
   ## Authenticating the runner
 
   ## Setup the Fluxcd GitOps
