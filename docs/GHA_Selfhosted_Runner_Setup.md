@@ -59,6 +59,16 @@
 
   ![GHA Selfthosted runner status](./images/gha-selfhosted-runner-status.png "GHA Selfthosted runner status")
 
+  ![GitHub Apps](./images/github-apps.png "GitHub Apps")
+
+  ![Install Apps](./images/Install-app.png "Install Apps")
+
+  ![GitHub Apps Homepage URL](./images/github-apps-homepageurl.png "GitHub Apps Homepage URL")
+
+  ![GitHub Apps Privatekey](./images/github-apps-privatekey.png "GitHub Apps Privatekey")
+
+  ![GitHub Apps Settings](./images/github-apps-setting1.png "GitHub Apps Settings")
+
    
 
   ## Setup the Fluxcd GitOps
