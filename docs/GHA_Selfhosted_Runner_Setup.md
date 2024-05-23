@@ -3,7 +3,7 @@
 
 <!-- TOC start -->
   - [Prerequisites](#prerequisites)
-  - [Create kind k8's cluster for selfhosted runner](#create-kind-cluster-for-GHA-selfhosted-runner)
+  - [Create kind k8's cluster for runner](#create-kind-cluster-for-runner)
   - [Authenticating the runner](#authenticating-the-runner)
   - [Setup the Fluxcd GitOps](#setup-fluxcd-gitops)
   - [Build Custom Actions Runner Image](#build-custom-actions-runner-image)
