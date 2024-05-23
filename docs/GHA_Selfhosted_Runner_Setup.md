@@ -191,12 +191,12 @@
 
      we have a workflow under ./github/workflows/buildImage.yaml -> This is an matrix based gha workflow that runs on 'ubuntu-latest' Github hosted runner which will parallelly build the docker file and push them to npd and prd acr repositories.
 
-     ACR_USERNAME ACR_SECRET, REPOSITORY_URL is stored as github environment secrets:
+     ACR_USERNAME ACR_SECRET, REPOSITORY_URL is stored as github environment secrets
+
 
     ![GH Repository Secrets](./images/gh_repository_secrets.png "GH Repository Secrets")
 
     ![GH Repository Secrets 2](./images/gh_repository_secrets2.png "GH Repository Secrets 2")
-
 
 
  
