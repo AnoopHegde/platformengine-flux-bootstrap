@@ -5,6 +5,7 @@
 <!-- TOC start -->
 
 - [Prerequisites](#prerequisites)
+- [High Level Architecture](#high-level-architecture)
 - [Create kind k8's cluster for runner](#create-kind-cluster-for-runner)
 - [Authenticating the runner](#authenticating-the-runner)
 - [Setup the Fluxcd GitOps](#setup-fluxcd-gitops)
@@ -27,6 +28,12 @@
 ![ACR Repositories](./images/acr_registeries.png "ACR Repositories")
 
 ![ACR Access Keys](./images/acr_access_keys.png "ACR Access Keys")
+
+## High Level Architecture
+
+Tech Stack:-
+
+![Tech Stack](./images/GHA-Runner-Techstack.png "Tech Stack")
 
 ## Create kind k8's cluster for runner
 
