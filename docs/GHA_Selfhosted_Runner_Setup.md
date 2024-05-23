@@ -215,8 +215,8 @@
   5. Deploy a shared-config map under flux-system namespace that consists all the common configs.
 
 
-    ```
-    
+```
+
     kubectl get cm shared-config -n flux-system -o yaml
 
     kubectl create secret docker-registry docker-secret \
@@ -239,7 +239,7 @@
 	  --from-file=github_app_private_key=gh-arc-runner-privatekey.pem
 
 
-    ```
+```
 
   ## Verify the Runner Installation
 
