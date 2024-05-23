@@ -22,9 +22,9 @@
      private key.
   4. Create a Azure Container Registry Instance in both npd/prd and activate the access key to get the admin user, Login URI etc.
 
-      ![ACR Repositories](./images/acr_registeries.png "ACR Repositories")
+  ![ACR Repositories](./images/acr_registeries.png "ACR Repositories")
 
-      ![ACR Access Keys](./images/acr_access_keys.png "ACR Access Keys")
+  ![ACR Access Keys](./images/acr_access_keys.png "ACR Access Keys")
 
   ## Create kind k8's cluster for runner
 
