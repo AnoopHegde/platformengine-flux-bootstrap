@@ -57,8 +57,8 @@ spec:
                 name: dind-cert
               - mountPath: /home/runner/externals
                 name: dind-externals
-        imagePullSecrets:
-          - name: docker-secret          
+                  #imagePullSecrets:
+          #- name: docker-secret          
         initContainers:
           - args:
               - -r
