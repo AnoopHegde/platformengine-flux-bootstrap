@@ -67,7 +67,7 @@
 
   ![GitHub Apps Privatekey](./images/github-apps-privatekey.png "GitHub Apps Privatekey")
 
-  ![GitHub Apps Settings](./images/github-apps-setting1.png "GitHub Apps Settings")
+  ![GitHub Apps Settings](./images/github-apps-settings1.png "GitHub Apps Settings")
 
    
 
