@@ -105,55 +105,55 @@
       The Structure is divided into apps/base, cluster/base, cluster/npd/githubrunner, cluster/prd/githubrunner
       
             ├── README.md
-      ├── apps
-      │   └── base
-      │       ├── actions-runner-controller
-      │       │   ├── arc-controller-hr.yaml
-      │       │   ├── arc-controller-ns.yaml
-      │       │   └── kustomization.yaml
-      │       ├── actions-runners
-      │       │   ├── arc-runner-hr.yaml
-      │       │   ├── arc-runner-ns.yaml
-      │       │   └── kustomization.yaml
-      │       ├── cert-manager
-      │       │   ├── cert-manager-hr.yaml
-      │       │   ├── cert-manager-ns.yaml
-      │       │   └── kustomization.yaml
-      │       ├── kubehunter
-      │       │   ├── kubehunter-cronjob.yaml
-      │       │   ├── kubehunter-ns.yaml
-      │       │   └── kustomization.yaml
-      │       └── sources
-      │           ├── actions-controller-oci.yaml
-      │           ├── jetstack.yaml
-      │           └── kustomization.yaml
-      ├── charts
-      ├── clusters
-      │   ├── base
-      │   │   └── githubrunner
-      │   │       ├── certmanager_ks.yaml
-      │   │       ├── githubrunner_ks.yaml
-      │   │       ├── kubehunter_ks.yaml
-      │   │       ├── kustomization.yaml
-      │   │       └── source_ks.yaml
-      │   ├── npd
-      │   │   ├── githubrunner
-      │   │   │   ├── flux-system
-      │   │   │   │   ├── gotk-components.yaml
-      │   │   │   │   ├── gotk-sync.yaml
-      │   │   │   │   └── kustomization.yaml
-      │   │   │   └── kustomization.yaml
-      │   │   └── staging
-      │   │       └── demo.txt
-      │   └── prd
-      │       ├── githubrunner
-      │       │   ├── demo.txt
-      │       │   └── flux-system
-      │       │       ├── gotk-components.yaml
-      │       │       ├── gotk-sync.yaml
-      │       │       └── kustomization.yaml
-      │       └── prd
-      │           └── demo.txt
+            ├── apps
+            │   └── base
+            │       ├── actions-runner-controller
+            │       │   ├── arc-controller-hr.yaml
+            │       │   ├── arc-controller-ns.yaml
+            │       │   └── kustomization.yaml
+            │       ├── actions-runners
+            │       │   ├── arc-runner-hr.yaml
+            │       │   ├── arc-runner-ns.yaml
+            │       │   └── kustomization.yaml
+            │       ├── cert-manager
+            │       │   ├── cert-manager-hr.yaml
+            │       │   ├── cert-manager-ns.yaml
+            │       │   └── kustomization.yaml
+            │       ├── kubehunter
+            │       │   ├── kubehunter-cronjob.yaml
+            │       │   ├── kubehunter-ns.yaml
+            │       │   └── kustomization.yaml
+            │       └── sources
+            │           ├── actions-controller-oci.yaml
+            │           ├── jetstack.yaml
+            │           └── kustomization.yaml
+            ├── charts
+            ├── clusters
+            │   ├── base
+            │   │   └── githubrunner
+            │   │       ├── certmanager_ks.yaml
+            │   │       ├── githubrunner_ks.yaml
+            │   │       ├── kubehunter_ks.yaml
+            │   │       ├── kustomization.yaml
+            │   │       └── source_ks.yaml
+            │   ├── npd
+            │   │   ├── githubrunner
+            │   │   │   ├── flux-system
+            │   │   │   │   ├── gotk-components.yaml
+            │   │   │   │   ├── gotk-sync.yaml
+            │   │   │   │   └── kustomization.yaml
+            │   │   │   └── kustomization.yaml
+            │   │   └── staging
+            │   │       └── demo.txt
+            │   └── prd
+            │       ├── githubrunner
+            │       │   ├── demo.txt
+            │       │   └── flux-system
+            │       │       ├── gotk-components.yaml
+            │       │       ├── gotk-sync.yaml
+            │       │       └── kustomization.yaml
+            │       └── prd
+            │           └── demo.txt
 
 
   3. Run the flux boostrap command:
