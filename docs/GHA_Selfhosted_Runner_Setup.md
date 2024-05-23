@@ -237,4 +237,94 @@ we have a workflow under ./github/workflows/buildImage.yaml -> This is an matrix
 
 ## Verify the Runner Installation
 
+```
+ helm list -A
+NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART
+        APP VERSION
+pe-arc-controller               arc-systems     1               2024-05-20 14:42:08.577382378 +0000 UTC deployed        gha-runner-scale-set-controller-0.4.0       0.4.0
+pe-arc-runner-shared-npd        arc-runners     2               2024-05-21 03:32:40.320219392 +0000 UTC deployed        gha-runner-scale-set-0.4.0
+        0.4.0
+pe-cert-manager                 cert-manager    1               2024-05-20 14:42:06.34203428 +0000 UTC  deployed        cert-manager-v1.8.0
+        v1.8.0
+
+kubectl get pods -n arc-systems
+NAME                                                              READY   STATUS    RESTARTS       AGE
+pe-arc-controller-gha-runner-scale-set-controller-8f4d9cd7fk6rp   1/1     Running   7 (139m ago)   2d19h
+pe-arc-runner-shared-npd-754b578d-listener                        1/1     Running   0              139m
+
+
+kubectl get pods -n arc-runners
+NAME                                          READY   STATUS    RESTARTS   AGE
+pe-arc-runner-shared-npd-44t2r-runner-v74mv   2/2     Running   0          14s
+
+kubectl get gitrepo -A
+NAMESPACE     NAME          URL                                                                      AGE     READY   STATUS
+flux-system   flux-system   https://github.com/Platform-CloudOps/platformengine-flux-bootstrap.git   2d19h   True    stored artifact for revision 'main@sha1:036ae5fd50dd44915eb8dd74a4a97ffa4b21b9da'
+
+kubectl get helmrepo -A
+NAMESPACE     NAME       URL                                                      AGE     READY   STATUS
+flux-system   arc        oci://ghcr.io/actions/actions-runner-controller-charts   2d19h
+flux-system   jetstack   https://charts.jetstack.io                               2d19h   True    stored artifact: revision 'sha256:f3f87c94e282617f9e4b980a38def558e05ef8624fb41ec39ffae32fa6a4bd3a'
+
+flux get hr -A
+NAMESPACE       NAME                    REVISION        SUSPENDED       READY   MESSAGE
+
+arc-runners     arc-runner-shared-npd   0.4.0           False           True    Helm upgrade succeeded for release arc-runners/pe-arc-runner-shared-npd.v2 with chart gha-runner-scale-set@0.4.0
+arc-systems     arc                     0.4.0           False           True    Helm install succeeded for release arc-systems/pe-arc-controller.v1 with chart gha-runner-scale-set-controller@0.4.0
+flux-system     cert-manager            v1.8.0          False           True    Helm install succeeded for release cert-manager/pe-cert-manager.v1 with chart cert-manager@v1.8.0
+
+
+flux get ks -A
+NAMESPACE       NAME            REVISION                SUSPENDED       READY   MESSAGE
+
+flux-system     cert-manager    main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     githubrunner    main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     kube-hunter     main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     runner-set      main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     sources         main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     flux-system     main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+
+flux get all -A
+NAMESPACE       NAME                            REVISION                SUSPENDED       READY   MESSAGE
+flux-system     gitrepository/flux-system       main@sha1:036ae5fd      False           True    stored artifact for revision 'main@sha1:036ae5fd'
+
+NAMESPACE       NAME                    REVISION        SUSPENDED       READY   MESSAGE
+flux-system     helmrepository/arc                      False           True    Helm repository is Ready
+flux-system     helmrepository/jetstack sha256:f3f87c94 False           True    stored artifact: revision 'sha256:f3f87c94'
+
+NAMESPACE       NAME                                            REVISION        SUSPENDED       READY   MESSAGE
+
+flux-system     helmchart/arc-runners-arc-runner-shared-npd     0.4.0           False           True    pulled 'gha-runner-scale-set' chart with version '0.4.0'
+flux-system     helmchart/arc-systems-arc                       0.4.0           False           True    pulled 'gha-runner-scale-set-controller' chart with version '0.4.0'
+flux-system     helmchart/flux-system-cert-manager              v1.8.0          False           True    pulled 'cert-manager' chart with version 'v1.8.0'
+
+
+NAMESPACE       NAME                                    REVISION        SUSPENDED       READY   MESSAGE
+
+arc-runners     helmrelease/arc-runner-shared-npd       0.4.0           False           True    Helm upgrade succeeded for release arc-runners/pe-arc-runner-shared-npd.v2 with chart gha-runner-scale-set@0.4.0
+arc-systems     helmrelease/arc                         0.4.0           False           True    Helm install succeeded for release arc-systems/pe-arc-controller.v1 with chart gha-runner-scale-set-controller@0.4.0
+flux-system     helmrelease/cert-manager                v1.8.0          False           True    Helm install succeeded for release cert-manager/pe-cert-manager.v1 with chart cert-manager@v1.8.0
+
+NAMESPACE       NAME                            REVISION                SUSPENDED       READY   MESSAGE                                                     
+
+flux-system     kustomization/flux-system       main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     kustomization/cert-manager      main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd   
+flux-system     kustomization/githubrunner      main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     kustomization/kube-hunter       main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     kustomization/runner-set        main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+flux-system     kustomization/sources           main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
+
+
+Test Workflow:
+
+https://github.com/Platform-CloudOps/platformengine-manifest-examples/actions/runs/9205944377/job/25322733741
+
+```
+
+
+![Test Workflow](./images/test_workflow.png "Test Workflow")
+
+![GHA Job Trigger](./images/gha_job_trigger.png "GHA Job Trigger")
+
+
 ## Reference Links
