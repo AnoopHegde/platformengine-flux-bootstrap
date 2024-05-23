@@ -235,10 +235,10 @@ we have a workflow under ./github/workflows/buildImage.yaml -> This is an matrix
 
 
   kubectl create secret generic pe-github-secret \
-	-n arc-runners \
-	--from-literal=github_app_id=<app_id> \
-	--from-literal=github_app_installation_id=<app_installation_id> \
-	--from-file=github_app_private_key=gh-arc-runner-privatekey.pem
+  -n arc-runners \
+  --from-literal=github_app_id=<app_id> \
+  --from-literal=github_app_installation_id=<app_installation_id> \
+  --from-file=github_app_private_key=gh-arc-runner-privatekey.pem
 
 ```
 
