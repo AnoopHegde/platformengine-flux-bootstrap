@@ -3,7 +3,7 @@
 
 <!-- TOC start -->
   - [Prerequisites](#prerequisites)
-  - [Create kind kubernetes cluster for GHA selfhosted runner](#create-kind-cluster-for-GHA-selfhosted-runner)
+  - [Create kind k8's cluster for selfhosted runner](#create-kind-cluster-for-GHA-selfhosted-runner)
   - [Authenticating the runner](#authenticating-the-runner)
   - [Setup the Fluxcd GitOps](#setup-fluxcd-gitops)
   - [Build Custom Actions Runner Image](#build-custom-actions-runner-image)
@@ -26,7 +26,7 @@
 
       ![ACR Access Keys](./images/acr_access_keys.png "ACR Access Keys")
 
-  ## Create kind kubernetes cluster for GHA selfhosted runner
+  ## Create kind k8's cluster for selfhosted runner
 
   We need to setup two different kind kubernetes cluster ingress Nginx both for npd and prd environments.
 
