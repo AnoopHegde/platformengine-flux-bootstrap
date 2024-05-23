@@ -1,0 +1,50 @@
+name: Build and Publish a runner image to ACR
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - main
+
+env:
+  IMAGE_NAME: "pe-actions-runner"
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        env-class: [npd,prd]
+    name: Build and Push Github Runner Image
+    environment: ${{ matrix.env-class }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to the Container registry
+        if: ${{  github.ref_name ==  'main'  || matrix.env-class == 'npd' }}
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ vars.REGISTRY }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_SECRET }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        if: ${{  github.ref_name ==  'main'  || matrix.env-class == 'npd' }}
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: "${{ vars.REGISTRY }}/${{ env.IMAGE_NAME }}"
+
+      - name: Build and push Docker image
+        if: ${{  github.ref_name ==  'main'  || matrix.env-class == 'npd' }}
+        uses: docker/build-push-action@v3
+        with:
+          context: ./
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: GITHUB_PAT=${{ secrets.GH_IAC_PAT }}

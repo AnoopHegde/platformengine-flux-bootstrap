@@ -200,7 +200,45 @@
  
   ## Installing Actions Runner Controller
 
+  1. Navigate to apps/base ->  create actions-runners , actions-runner-controller config folder
+  2. Create helm release , namespace and kustomization config file and deploy them.
+  3. Create cert-manager helm release , namespace and kustomization config file and deploy them.
+
+
   ## Configure a runner scale set
+  
+  1. Navigate to apps/base ->  create actions-runners , actions-runner-controller config folder
+  2. Create helm release , namespace and kustomization config file and deploy them.
+  3. Navigate to clusters/base/githubrunner -> and write certmanager,githubrunner,kubehunter,source_ks and kustomization  
+     config files.
+  4. Under clusters/npd/githubrunner/ -> write a patch json kustomization to override the env_class.
+  5. Deploy a shared-config map under flux-system namespace that consists all the common configs.
+
+
+    ```
+    kubectl get cm shared-config -n flux-system -o yaml
+
+    kubectl create secret docker-registry docker-secret \
+    --namespace flux-system \
+    --docker-server=peacrnpd.azurecr.io \
+    --docker-username=peacrnpd \
+    --docker-password=<secret>
+	
+	
+    kubectl create secret docker-registry docker-secret \
+    --namespace arc-runners \
+    --docker-server=peacrnpd.azurecr.io \
+    --docker-username=peacrnpd \
+    --docker-password=<secret>
+
+    kubectl create secret generic pe-github-secret \
+	  -n arc-runners \
+	  --from-literal=github_app_id=<app_id> \
+	  --from-literal=github_app_installation_id=<app_installation_id> \
+	  --from-file=github_app_private_key=gh-arc-runner-privatekey.pem
+	
+
+    ```
 
   ## Verify the Runner Installation
 

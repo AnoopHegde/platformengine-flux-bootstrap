@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shared-config
+  namespace: flux-system
+data:
+  env_class: prd
+  cluster_name: kind-gha-selfhosted-cluster
+  docker_secret: <.docker_Secret>
