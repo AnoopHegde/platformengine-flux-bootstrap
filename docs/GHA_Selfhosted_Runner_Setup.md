@@ -98,6 +98,87 @@
 
       ```
 
+  2.  Boostrap a Flux repo
+  
+      Before boostrapping the Flux repository its important to structure the overall respository architecture based on components, environments
+
+      The Structure is divided into apps/base, cluster/base, cluster/npd/githubrunner, cluster/prd/githubrunner
+      
+            ├── README.md
+      ├── apps
+      │   └── base
+      │       ├── actions-runner-controller
+      │       │   ├── arc-controller-hr.yaml
+      │       │   ├── arc-controller-ns.yaml
+      │       │   └── kustomization.yaml
+      │       ├── actions-runners
+      │       │   ├── arc-runner-hr.yaml
+      │       │   ├── arc-runner-ns.yaml
+      │       │   └── kustomization.yaml
+      │       ├── cert-manager
+      │       │   ├── cert-manager-hr.yaml
+      │       │   ├── cert-manager-ns.yaml
+      │       │   └── kustomization.yaml
+      │       ├── kubehunter
+      │       │   ├── kubehunter-cronjob.yaml
+      │       │   ├── kubehunter-ns.yaml
+      │       │   └── kustomization.yaml
+      │       └── sources
+      │           ├── actions-controller-oci.yaml
+      │           ├── jetstack.yaml
+      │           └── kustomization.yaml
+      ├── charts
+      ├── clusters
+      │   ├── base
+      │   │   └── githubrunner
+      │   │       ├── certmanager_ks.yaml
+      │   │       ├── githubrunner_ks.yaml
+      │   │       ├── kubehunter_ks.yaml
+      │   │       ├── kustomization.yaml
+      │   │       └── source_ks.yaml
+      │   ├── npd
+      │   │   ├── githubrunner
+      │   │   │   ├── flux-system
+      │   │   │   │   ├── gotk-components.yaml
+      │   │   │   │   ├── gotk-sync.yaml
+      │   │   │   │   └── kustomization.yaml
+      │   │   │   └── kustomization.yaml
+      │   │   └── staging
+      │   │       └── demo.txt
+      │   └── prd
+      │       ├── githubrunner
+      │       │   ├── demo.txt
+      │       │   └── flux-system
+      │       │       ├── gotk-components.yaml
+      │       │       ├── gotk-sync.yaml
+      │       │       └── kustomization.yaml
+      │       └── prd
+      │           └── demo.txt
+
+
+  3. Run the flux boostrap command:
+        
+        ```
+         export GH_USERNAME=<gha_username>
+         export GITHUB_TOKEN=<gha_fine_grained_pattoken>
+
+         flux bootstrap github \
+         --token-auth \
+         --branch=main \
+         --owner=$GH_USERNAME \
+         --repository=platformengine-flux-bootstrap \
+         --path=clusters/npd/githubrunner \
+         --personal=true \
+         --private=false \
+         --components-extra="image-reflector-controller,image-automation-controller"  
+
+      Similiarly we can perform the flux bootstrap for PRD environment as well.
+
+        ```
+
+
+
+
   ## Installing Actions Runner Controller
 
   ## Configure a runner scale set
