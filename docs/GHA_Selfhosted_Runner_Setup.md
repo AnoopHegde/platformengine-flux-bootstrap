@@ -104,8 +104,8 @@ Screenshots:
 
     A container image with kubectl and flux is available on DockerHub and GitHub:
 
-      docker.io/fluxcd/flux-cli:<version>
-      ghcr.io/fluxcd/flux-cli:<version>
+    docker.io/fluxcd/flux-cli:<version>
+    ghcr.io/fluxcd/flux-cli:<version>
 
     docker run -it --entrypoint=sh -v ~/.kube/config:/kubeconfig ghcr.io/fluxcd/flux-cli:v2.0.0
     / # flux check --kubeconfig=kubeconfig
@@ -218,27 +218,27 @@ we have a workflow under ./github/workflows/buildImage.yaml -> This is an matrix
 
 ```
 
-    kubectl get cm shared-config -n flux-system -o yaml
+  kubectl get cm shared-config -n flux-system -o yaml
 
-    kubectl create secret docker-registry docker-secret \
-    --namespace flux-system \
-    --docker-server=peacrnpd.azurecr.io \
-    --docker-username=peacrnpd \
-    --docker-password=<secret>
+  kubectl create secret docker-registry docker-secret \
+  --namespace flux-system \
+  --docker-server=peacrnpd.azurecr.io \
+  --docker-username=peacrnpd \
+  --docker-password=<secret>
 
 
-    kubectl create secret docker-registry docker-secret \
-    --namespace arc-runners \
-    --docker-server=peacrnpd.azurecr.io \
-    --docker-username=peacrnpd \
-    --docker-password=<secret>
+  kubectl create secret docker-registry docker-secret \
+  --namespace arc-runners \
+  --docker-server=peacrnpd.azurecr.io \
+  --docker-username=peacrnpd \
+  --docker-password=<secret>
 
-    kubectl create secret generic pe-github-secret \
-	  -n arc-runners \
-	  --from-literal=github_app_id=<app_id> \
-	  --from-literal=github_app_installation_id=<app_installation_id> \
-	  --from-file=github_app_private_key=gh-arc-runner-privatekey.pem
 
+  kubectl create secret generic pe-github-secret \
+	-n arc-runners \
+	--from-literal=github_app_id=<app_id> \
+	--from-literal=github_app_installation_id=<app_installation_id> \
+	--from-file=github_app_private_key=gh-arc-runner-privatekey.pem
 
 ```
 
@@ -312,10 +312,10 @@ arc-runners     helmrelease/arc-runner-shared-npd       0.4.0           False   
 arc-systems     helmrelease/arc                         0.4.0           False           True    Helm install succeeded for release arc-systems/pe-arc-controller.v1 with chart gha-runner-scale-set-controller@0.4.0
 flux-system     helmrelease/cert-manager                v1.8.0          False           True    Helm install succeeded for release cert-manager/pe-cert-manager.v1 with chart cert-manager@v1.8.0
 
-NAMESPACE       NAME                            REVISION                SUSPENDED       READY   MESSAGE                                                     
+NAMESPACE       NAME                            REVISION                SUSPENDED       READY   MESSAGE
 
 flux-system     kustomization/flux-system       main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
-flux-system     kustomization/cert-manager      main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd   
+flux-system     kustomization/cert-manager      main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
 flux-system     kustomization/githubrunner      main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
 flux-system     kustomization/kube-hunter       main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
 flux-system     kustomization/runner-set        main@sha1:036ae5fd      False           True    Applied revision: main@sha1:036ae5fd
@@ -328,11 +328,9 @@ https://github.com/Platform-CloudOps/platformengine-manifest-examples/actions/ru
 
 ```
 
-
 ![Test Workflow](./images/test_workflow.png "Test Workflow")
 
 ![GHA Job Trigger](./images/gha_job_trigger.png "GHA Job Trigger")
-
 
 ## Reference Links
 
@@ -346,4 +344,4 @@ https://github.com/Platform-CloudOps/platformengine-manifest-examples/actions/ru
 8. https://www.youtube.com/watch?v=lD0t-UgKfEo -> GitHub Actions Self Hosted Runner (Autoscaling with Kubernetes)
 9. Components for ARC runner setup -> https://www.youtube.com/watch?v=lD0t-UgKfEo
 10. https://github.com/antonputra/tutorials/tree/main/lessons/089
-11. https://www.youtube.com/watch?v=_F5ocPrv6io  -> GitHub Actions: Dive into actions-runner-controller (ARC) || Advanced installation & configuration.
+11. https://www.youtube.com/watch?v=_F5ocPrv6io -> GitHub Actions: Dive into actions-runner-controller (ARC) || Advanced installation & configuration.
