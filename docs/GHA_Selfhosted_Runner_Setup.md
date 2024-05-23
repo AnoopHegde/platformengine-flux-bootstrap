@@ -19,6 +19,11 @@
   2. Create a new repository for building and pushing custom actions-runner-image.
   3. Create a new github apps under organizational level and install them to get the appID, appInstallationID, client_secret
      private key.
+  4. Create a Azure Container Registry Instance in both npd/prd and activate the access key to get the admin user, Login URI etc.
+
+      ![ACR Repositories](./images/acr_registeries.png "ACR Repositories")
+
+      ![ACR Access Keys](./images/acr_access_keys.png "ACR Access Keys")
 
   ## Create kind kubernetes cluster for GHA selfhosted runner
 
