@@ -26,7 +26,7 @@
 
       ![ACR Access Keys](./images/acr_access_keys.png "ACR Access Keys")
 
-  ## Create kind k8's cluster for selfhosted runner
+  ## Create kind k8's cluster for runner
 
   We need to setup two different kind kubernetes cluster ingress Nginx both for npd and prd environments.
 
