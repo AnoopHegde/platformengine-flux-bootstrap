@@ -70,8 +70,33 @@
   ![GitHub Apps Settings](./images/github-apps-settings1.png "GitHub Apps Settings")
 
    
-
   ## Setup the Fluxcd GitOps
+
+  1. Install the Latest version of Flux CLI:
+      
+      Command to Install:
+
+      ```
+      https://fluxcd.io
+      https://fluxcd.io/flux/cmd/
+
+      curl -s https://fluxcd.io/install.sh | sudo FLUX_VERSION=2.0.0 bash
+
+      flux --version
+      flux check --pre
+      flux check
+      
+      Install using Docker 
+
+      A container image with kubectl and flux is available on DockerHub and GitHub:
+
+        docker.io/fluxcd/flux-cli:<version>
+        ghcr.io/fluxcd/flux-cli:<version>
+
+      docker run -it --entrypoint=sh -v ~/.kube/config:/kubeconfig ghcr.io/fluxcd/flux-cli:v2.0.0
+      / # flux check --kubeconfig=kubeconfig   
+
+      ```
 
   ## Installing Actions Runner Controller
 
