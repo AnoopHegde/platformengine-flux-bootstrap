@@ -216,6 +216,7 @@
 
 
     ```
+    
     kubectl get cm shared-config -n flux-system -o yaml
 
     kubectl create secret docker-registry docker-secret \
@@ -236,7 +237,7 @@
 	  --from-literal=github_app_id=<app_id> \
 	  --from-literal=github_app_installation_id=<app_installation_id> \
 	  --from-file=github_app_private_key=gh-arc-runner-privatekey.pem
-	
+
 
     ```
 
