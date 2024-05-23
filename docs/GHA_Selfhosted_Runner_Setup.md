@@ -328,3 +328,15 @@ https://github.com/Platform-CloudOps/platformengine-manifest-examples/actions/ru
 
 
 ## Reference Links
+
+1. https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners
+2. https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller
+3. https://fluxcd.io/
+4. https://learn.microsoft.com/en-us/azure/container-registry/container-registry-auth-kubernetes
+5. https://www.bing.com/search?pglt=43&q=add+azure+terraform+provider+into+github+self+hosted+runner+image&cvid=44d66ad2c57d48a9825506b500195ebf&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQ6QcY_FXSAQkxMjEwNGowajGoAgCwAgA&FORM=ANNAB1&PC=U531&ntref=1
+6. https://github.com/liatrio/terraform-azure-github-runner
+7. https://github.com/waylew-lexis/terraform-azurerm-github-runner
+8. https://www.youtube.com/watch?v=lD0t-UgKfEo -> GitHub Actions Self Hosted Runner (Autoscaling with Kubernetes)
+9. Components for ARC runner setup -> https://www.youtube.com/watch?v=lD0t-UgKfEo
+10. https://github.com/antonputra/tutorials/tree/main/lessons/089
+11. https://www.youtube.com/watch?v=_F5ocPrv6io  -> GitHub Actions: Dive into actions-runner-controller (ARC) || Advanced installation & configuration.
