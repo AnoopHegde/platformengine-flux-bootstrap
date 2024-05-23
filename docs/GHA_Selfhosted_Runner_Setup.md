@@ -33,6 +33,12 @@
 
 ![Tech Stack](./images/GHA-Runner-Techstack.png "Tech Stack")
 
+![High Level Architecture](./images/High_Level_Architecture.png "High Level Architecture")
+
+Figma Link: 
+
+https://www.figma.com/board/775gueljgCIlEOfrO6fHtP/GitHub-Self-Hosted-Runner-High-level-Design?node-id=0%3A1&t=X8beNCQJGSEL0Ovl-1
+
 ## Create kind k8's cluster for runner
 
 We need to setup two different kind kubernetes cluster ingress Nginx both for npd and prd environments.
