@@ -31,8 +31,6 @@
 
 ## High Level Architecture
 
-Tech Stack:-
-
 ![Tech Stack](./images/GHA-Runner-Techstack.png "Tech Stack")
 
 ## Create kind k8's cluster for runner
