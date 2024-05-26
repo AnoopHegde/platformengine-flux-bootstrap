@@ -1,6 +1,6 @@
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
+kind: OCIRepository
 metadata:
   name: capacitor
   namespace: flux-system
@@ -24,5 +24,5 @@ spec:
   prune: true
   path: "./"
   sourceRef:
-    kind: HelmRepository
+    kind: OCIRepository
     name: capacitor      
