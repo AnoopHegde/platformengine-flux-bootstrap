@@ -6,3 +6,4 @@ resources:
   - certmanager_ks.yaml
   - githubrunner_ks.yaml
   - kubehunter_ks.yaml
+  - capacitor-fluxcdui-oci.yaml  
