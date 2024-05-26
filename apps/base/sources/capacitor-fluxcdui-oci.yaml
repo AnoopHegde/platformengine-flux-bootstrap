@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 12h
+  type: oci
   url: oci://ghcr.io/gimlet-io/capacitor-manifests
   ref:
     semver: ">=0.1.0"
