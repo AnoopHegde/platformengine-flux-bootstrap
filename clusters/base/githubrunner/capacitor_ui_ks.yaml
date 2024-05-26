@@ -10,7 +10,7 @@ spec:
   timeout: 5m
   wait: true
   prune: true
-  path: "./apps/base/sources"
+  path: "./apps/base/sources/capacitor-fluxcdui-oci.yaml"
   sourceRef:
     kind: OCIRepository
     name: capacitor
