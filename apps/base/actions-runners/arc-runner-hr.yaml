@@ -19,8 +19,8 @@ spec:
   targetNamespace: arc-runners
   values:
     githubConfigSecret: pe-github-secret  #pragma: allowlist secret
-    githubConfigUrl: "https://github.com/Platform-CloudOps"
-    runnerGroup: platformengine-runner-group
+    githubConfigUrl: "https://github.com/AnoopHegde"
+    runnerGroup: default
     template:
       spec:
         imagePullSecrets:
