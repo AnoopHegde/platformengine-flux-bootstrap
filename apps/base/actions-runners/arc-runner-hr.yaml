@@ -20,7 +20,7 @@ spec:
   values:
     githubConfigSecret: pe-github-secret  #pragma: allowlist secret
     githubConfigUrl: "https://github.com/AnoopHegde"
-    runnerGroup: Default
+    runnerGroup: platformengine-runner-group
     template:
       spec:
         imagePullSecrets:
