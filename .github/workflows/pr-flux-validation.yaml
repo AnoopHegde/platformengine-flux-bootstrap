@@ -1,0 +1,38 @@
+name: Flux Validation Checks
+on:
+  pull_request:
+    types:
+      - opened
+      - closed
+    branches:
+      - main
+
+jobs:
+  validate_yaml:
+    name: Pre-commit checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install pre-commit
+        run: |
+          pip install pre-commit
+
+      - name: Run pre-commit checks
+        run: |
+          pre-commit run --all-files
+
+  Flux_schema_validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup tools
+        run: bash ./.github/flux-validation/kubeval_setup.sh
+
+      - name: Validate manifests
+        run: bash ./.github/flux-validation/validate_flux_schema.sh
+

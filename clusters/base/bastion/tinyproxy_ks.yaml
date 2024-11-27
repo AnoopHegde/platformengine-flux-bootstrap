@@ -1,0 +1,29 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: tinyproxy
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./apps/base/tinyproxy
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: client
+  postBuild:
+    substituteFrom:
+    - kind: ConfigMap
+      name: shared-config
+  patches:
+    - patch: |-
+        - op: replace
+          path: /spec/template/spec/containers/0/image
+          value: "apeacrnpd.azurecr.io/pe-core/pe-bastion-proxy:0.0.2"
+      target: 
+         version: v1
+         group: apps
+         kind: Deployment
+         name: pe-bastion-proxy
+         namespace: tinyproxy

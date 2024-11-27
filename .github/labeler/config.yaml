@@ -1,0 +1,21 @@
+base:
+- apps/base/**/*
+- clusters/base/**/*
+
+non-production:
+- clusters/npd/**/*
+
+production:
+- clusters/prd/**/*
+
+bastion:
+- clusters/**/bastion/**/*
+
+control:
+- clusters/**/control/**/*
+
+workload:
+- clusters/**/workload/**/*
+
+workflow:
+- .github/**/*

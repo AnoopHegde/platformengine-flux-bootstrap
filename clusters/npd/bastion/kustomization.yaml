@@ -1,0 +1,18 @@
+kind: Kustomization
+namespace: flux-system
+resources:
+  - ../../base/bastion
+patchesJson6902:
+  - target:
+      version: v1beta2
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+      name: tinyproxy
+      namespace: flux-system
+    patch: |-
+      - op: replace
+        path: /spec/patches/0/patch
+        value: |-
+          - op: replace
+            path: /spec/template/spec/containers/0/image
+            value: "apeacrnpd.azurecr.io/pe-core/pe-bastion-proxy:0.0.2"
