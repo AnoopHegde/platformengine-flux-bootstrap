@@ -15,4 +15,4 @@ patchesJson6902:
         value: |-
           - op: replace
             path: /spec/template/spec/containers/0/image
-            value: "depacrnpd.azurecr.io/dep-core/de-bastion-proxy:0.0.2"
+            value: "apeacrnpd.azurecr.io/pe-core/pe-bastion-proxy:0.0.2"
