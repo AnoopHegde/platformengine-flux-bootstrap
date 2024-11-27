@@ -1,0 +1,42 @@
+---                                                                                                                                                                                                                                     
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: pe-bastion-proxy
+  namespace: tinyproxy
+
+---
+apiVersion: apps/v1                                                                                                                                                                                                                     
+kind: Deployment                                                                                                                                                                                                                        
+metadata:                                                                                                                                                                                                                               
+  name: pe-bastion-proxy 
+  namespace: tinyproxy
+  labels:                                                                                                                                                                                                                               
+    app.kubernetes.io/name: pe-bastion-proxy                                                                                                                                                                                            
+spec:                                                                                                                                                                                                                                   
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: pe-bastion-proxy
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: pe-bastion-proxy
+    spec:
+      serviceAccountName: pe-bastion-proxy
+      imagePullSecrets:
+        - name: docker-secret
+      containers:
+        - name: pe-bastion-proxy
+          image: "apeacrnpd.azurecr.io/pe-core/pe-bastion-proxy:0.0.2"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: proxyport
+              containerPort: 8888
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: proxyport
+          readinessProbe:
+            tcpSocket:
+              port: proxyport
